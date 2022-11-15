@@ -53,7 +53,8 @@ toolbox.register("evaluate", oneMaxFitness)
 # genetic operators:mutFlipBit
 
 # Tournament selection with tournament size of 3:
-toolbox.register("select", tools.selTournament, tournsize=3)
+#toolbox.register("select", tools.selTournament, tournsize=3)
+toolbox.register("select", tools.selRoulette)
 
 # Single-point crossover:
 toolbox.register("mate", tools.cxOnePoint)
@@ -93,7 +94,7 @@ def main():
     plt.plot(maxFitnessValues, color='red')
     plt.plot(meanFitnessValues, color='green')
     plt.xlabel('Generation')
-    plt.ylabel('Max / Average Fitness')
+    plt.ylabel('Max (Red) / Average (Green) Fitness')
     plt.title('Max and Average Fitness over Generations')
 
     plt.show()
